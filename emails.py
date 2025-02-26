@@ -24,14 +24,15 @@ text = text.replace("%website%", "https://dvmn.org/profession-ref-program/stepan
 text = text.replace("%friend_name%", "Иван")
 text = text.replace("%my_name%", "Степан")
 letter = """From: stephan.nn@yandex.ru
-To: friend@yandex.ru
+To: stephan.nn@yandex.ru
 Subject: Попробуй себя в программировании!
 Content-Type: text/plain; charset="UTF-8";
 
 {text}""".format(text = text)
 letter = letter.encode("UTF-8")
 server = smtplib.SMTP_SSL('smtp.yandex.ru', 465)
+email = "stephan.nn@yandex.ru"
 login=os.environ['LOGIN']
 password=os.environ['PASSWORD']
 server.login(login, password)
-server.sendmail("stephan.nn@yandex.ru", "stephan.nn@yandex.ru", letter) 
+server.sendmail(email, email, letter) 
