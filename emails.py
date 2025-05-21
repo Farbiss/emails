@@ -23,15 +23,15 @@ text = """Привет, %friend_name%! %my_name% приглашает тебя �
 text = text.replace("%website%", "https://dvmn.org/profession-ref-program/stepandssss/VDUR4/")
 text = text.replace("%friend_name%", "Иван")
 text = text.replace("%my_name%", "Степан")
-letter = """From: stephan.nn@yandex.ru
-To: stephan.nn@yandex.ru
+email = "stephan.nn@yandex.ru"
+letter = """From: {email}
+To: {email}
 Subject: Попробуй себя в программировании!
 Content-Type: text/plain; charset="UTF-8";
 
-{text}""".format(text = text)
+{text}""".format(text = text, email = email)
 letter = letter.encode("UTF-8")
 server = smtplib.SMTP_SSL('smtp.yandex.ru', 465)
-email = "stephan.nn@yandex.ru"
 login=os.environ['LOGIN']
 password=os.environ['PASSWORD']
 server.login(login, password)
